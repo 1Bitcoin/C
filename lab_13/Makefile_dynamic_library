@@ -1,0 +1,19 @@
+all: app_dynamic.exe
+
+app_dynamic.exe: main.o libdynamic.dll
+	gcc -o app_dynamic.exe main.o -L. -ldynamic -Wl,-rpath,.
+
+main.o: main.c
+	gcc -std=c99 -Werror -Wall -g3 -pedantic -c main.c
+
+libdynamic.dll: lib.o IO_LIB.o
+	gcc -shared -o libdynamic.dll lib.o IO_LIB.o
+
+lib.o: lib.c
+	gcc -c -fPIC lib.c
+
+IO_LIB.o: IO_LIB.c
+	gcc -c -fPIC IO_LIB.c
+
+clean:
+	rm -rf *.o app_dynamic.exe

@@ -1,0 +1,21 @@
+first test
+
+0 0 0
+
+20 0 0
+
+0 50 0
+
+Rectangular
+
+second test
+
+2 5 3
+
+5 9 7
+
+0 2 6
+
+Acute angle
+
+

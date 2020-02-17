@@ -1,0 +1,22 @@
+all: app_static.exe
+
+main.o: main.c
+	gcc -std=c99 -Werror -Wall -g3 -pedantic -c main.c
+
+IO_LIB.o: IO_LIB.c
+	gcc -c -fPIC IO_LIB.c
+
+app_static.exe: main.o libstatic.a
+	gcc -o app_static.exe main.o -L. -lstatic
+
+libstatic.a: IO_LIB.o lib.o
+	ar cr libstatic.a IO_LIB.o lib.o
+
+lib.o: lib.c
+	gcc -std=c99 -Werror -Wall -g3 -pedantic -c lib.c
+
+IO_LIB.o: IO_LIB.c
+	gcc -std=c99 -Werror -Wall -g3 -pedantic -c IO_LIB.c
+
+clean:
+	rm -rf *.o *.a app_static.exe

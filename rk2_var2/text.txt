@@ -1,0 +1,6 @@
+KOALA 1 1000
+cat 23 200
+dog 3 4
+KOALA 10 10
+slon 228 111
+KOALA 2 23

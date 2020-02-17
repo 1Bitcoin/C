@@ -1,0 +1,69 @@
+Исправление ошибок в Задаче 2.
+
+1) error: unknown type name 'include'
+
+Компилятор приминает ключевое слово 'include' за неизвестное имя
+
+-include studio.h
+
++#include <studio.h>
+
+2) fatal error: studio.h: No such file or directory
+
+Неизвестный файл или каталог
+
+-#include <studio.h>
+
++#include <stdio.h>
+
+3) error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+
+Ожидается атрибут перед {
+
+-main{}
+
+-(
+
++int main(void)
+
++{
+
+-)
+
++}
+
+4) error: expected expression before '=' token
+
+Ожидаемое выражение до токена '='
+
+- s: =56;
+
++s = 56;
+
+5) error: 'Year' undeclared (first use in this function)
+
+'Year' не объявлена (первое использование в этой функции)
+
+-print (Year has a weeks)
+
++print ("Year has a weeks")
+
+6) error: expected ';' before '}' token
+
+Ожидается ';' до токена '}'
+
+-print ("Year has a weeks")
+
++print ("Year has a weeks");
+
+6) undefined reference to `print'
+
+Неопределенная ссылка на 'print'
+
+-print ("Year has a weeks");
+
++printf ("Year has a weeks");
+
+7) Также по стандарту необходимо добавить 'return 0;' в конец программы, это делается для того, чтобы видеть "нормальное" завершение программы - ноль.
+
++return 0;
